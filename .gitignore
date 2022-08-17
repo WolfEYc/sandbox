@@ -8,3 +8,8 @@ sumeven
 .vscode/launch.json
 .vscode/tasks.json
 prefix
+fizzbuzz
+jcount
+jfrequency
+triangles
+.gitignore
