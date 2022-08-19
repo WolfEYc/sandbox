@@ -2,15 +2,12 @@
 #include <iostream>
 using namespace std;
 
-const int DIRECTIONS = 4;
 
 class Solution
 {
 private:
+    vector<pair<int, int>> directions;
     vector<vector<bool>> grid;
-
-    const int dr[DIRECTIONS] = {0 , 0, -1, 1};
-    const int dc[DIRECTIONS] = {1 , -1, 0, 0};
 
     bool isIsland(int r, int c) const
     {
@@ -27,13 +24,20 @@ private:
 
         grid[r][c] = 0;
         
-        for(int i = 0; i < DIRECTIONS; i++)
+        for(int i = 0; i < directions.size(); i++)
         {
-            dfs(r + dr[i], c + dc[i]);
+            dfs(r + directions[i].first, c + directions[i].second);
         }
     }
 public:
-    Solution() {}
+    Solution() : 
+        directions({
+            {0, 1},
+            {0, -1},
+            {1, 0},
+            {-1, 0}
+        }) {}
+        
     int numIslands(vector<vector<bool>>& map){
         grid = map;
 
